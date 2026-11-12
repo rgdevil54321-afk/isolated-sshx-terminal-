@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --panel-dark: 10 10 12;
+    --panel-surface: 17 17 20;
+    --panel-elevated: 24 24 28;
+    --panel-border: 39 39 42;
+    --panel-accent: 56 189 248;
+    --panel-accent-dim: 34 211 238;
+    --panel-muted: 113 113 122;
+  }
+
+  body {
+    @apply bg-[#0a0a0c] text-gray-200 antialiased;
+    background-color: rgb(var(--panel-dark));
+    color: #e5e5e5;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-[#111114] border border-[#27272a] rounded-xl shadow-lg;
+  }
+  .panel-elevated {
+    @apply bg-[#18181c] border border-[#27272a] rounded-xl shadow-xl;
+  }
+  .input {
+    @apply w-full bg-[#0a0a0c] border border-[#27272a] rounded-lg px-4 py-3 text-gray-200
+           focus:outline-none focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8]
+           transition-all disabled:opacity-50;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium
+           transition-all disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-[#38bdf8] text-[#0a0a0c] hover:bg-[#4fd1f8] shadow-[0_0_15px_rgba(56,189,248,0.35)];
+  }
+  .btn-danger {
+    @apply btn bg-[#ef4444] text-white hover:bg-[#f87171] shadow-[0_0_15px_rgba(239,68,68,0.35)];
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-gray-300 hover:bg-[#18181c] hover:text-[#38bdf8] border border-transparent hover:border-[#38bdf8];
+  }
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium border;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+#xterm-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Smooth page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
